@@ -1,0 +1,54 @@
+AUDIO:
+  sample_rate: 16000
+  window: hamming
+  window_size: 0.02
+  window_stride: 0.01
+SOLVER:
+  accelerator: ddp
+  alpha: 0.1
+  clip: false
+  dropout_rate: 0.1
+  gpus:
+  - 0
+  - 1
+  - 2
+  - 3
+  k_lr: 1
+  label_smoothing: 0.0
+  loss_type: ce
+  lr: 0.01
+  max_epochs: 100
+  max_norm: 400
+  min_lr: 1.0e-06
+  test_batch_size: 32
+  train_batch_size: 32
+  valid_batch_size: 32
+  warmup: 12000
+SPECAUGMENT:
+  apply_freq_mask: true
+  apply_time_mask: true
+  apply_time_warp: true
+  freq_mask_width_range:
+  - 0
+  - 20
+  num_freq_mask: 2
+  num_time_mask: 2
+  spec_augment_prob: 0.3
+  time_mask_width_range: null
+  time_mask_width_ratio_range:
+  - 0
+  - 0.2
+  time_warp_mode: bicubic
+  time_warp_window: 80
+  use_spec_augment: true
+TRANSFORMER:
+  dim_emb: 512
+  dim_hidden: 2048
+  dim_key: 64
+  dim_model: 512
+  dim_value: 64
+  emb_trg_sharing: false
+  num_heads: 8
+  num_layers: 6
+  src_max_length: 2500
+  trg_max_length: 100

@@ -1,0 +1,26 @@
+# 示例
+PRETRAINED:
+  tokenizer: "tb_logs/PreTrained/tokenizer/chinese-roberta-wwm-ext/"
+  model: "tb_logs/PreTrained/model/chinese-roberta-wwm-ext/"
+  config: "tb_logs/PreTrained/model/chinese-roberta-wwm-ext/config.json"
+
+DATASETS:
+  train: "/nvme0/qian/News2016/train_correct.txt"
+  valid: "/nvme0/qian/News2016/valid_correct.txt"
+  test: "/nvme0/qian/News2016/valid_correct.txt"
+
+SOLVER:
+  gpus: [0,1]
+  max_epochs: 50
+  train_batch_size: 256
+  valid_batch_size: 256
+  test_batch_size: 256
+  threshold: 0.5  # 置信门限
+
+CONFUSION:
+  max_mask_prob: 0.3
+  mask_lv1_prob: 0.1
+  mask_lv2_prob: 0.1
+  mask_lv3_prob: 0.2
+  mask_lv4_prob: 0.3
+  mask_lv5_prob: 0.3
